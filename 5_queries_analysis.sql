@@ -75,3 +75,13 @@ SELECT
 FROM ratings
 GROUP BY rating_year
 ORDER BY rating_year;
+
+-- Sample
+SELECT 
+    m.title, 
+    AVG(r.rating) AS average_rating
+FROM movies AS m
+JOIN ratings AS r ON m.movieId = r.movieId
+GROUP BY m.title
+ORDER BY average_rating DESC
+LIMIT 5;
